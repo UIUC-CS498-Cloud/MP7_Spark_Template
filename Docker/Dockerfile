@@ -34,13 +34,13 @@ RUN curl -s "https://archive.apache.org/dist/hadoop/core/hadoop-3.3.6/hadoop-3.3
     && ln -s /usr/local/hadoop-3.3.6 /usr/local/hadoop \
     && chmod a+rwx -R /usr/local/hadoop/
 
-ENV HADOOP_PREFIX /usr/local/hadoop
-ENV HADOOP_COMMON_HOME /usr/local/hadoop
-ENV HADOOP_HDFS_HOME /usr/local/hadoop
-ENV HADOOP_MAPRED_HOME /usr/local/hadoop
-ENV HADOOP_YARN_HOME /usr/local/hadoop
-ENV HADOOP_CONF_DIR /usr/local/hadoop/etc/hadoop
-ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
+ENV HADOOP_PREFIX=/usr/local/hadoop
+ENV HADOOP_COMMON_HOME=/usr/local/hadoop
+ENV HADOOP_HDFS_HOME=/usr/local/hadoop
+ENV HADOOP_MAPRED_HOME=/usr/local/hadoop
+ENV HADOOP_YARN_HOME=/usr/local/hadoop
+ENV HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+ENV YARN_CONF_DIR=$HADOOP_PREFIX/etc/hadoop
 ENV PATH="/usr/local/hadoop/bin:${PATH}"
 
 ################################################################################
@@ -64,7 +64,7 @@ RUN pip3 install numpy
 RUN cp /usr/local/spark/conf/log4j2.properties.template /usr/local/spark/conf/log4j2.properties
 
 # Set relevant environment variables to simplify usage of spark
-ENV SPARK_HOME /usr/local/spark
+ENV SPARK_HOME=/usr/local/spark
 ENV PATH="/usr/local/spark/bin:${PATH}"
 RUN chmod a+rwx -R /usr/local/spark/
 
@@ -100,7 +100,3 @@ RUN echo "set background=dark" >> ~/.vimrc
 
 # Add spark-submit alias
 RUN echo "alias spark-submit='/usr/local/spark/bin/spark-submit'" >> ~/.bashrc
-
-# [Optional] Set working path to /cs498
-# WORKDIR /cs498
-# docker run -it --rm --mount type=bind,source=$PATH_TO_CODE,target=/cs498/ mp-new /bin/bash

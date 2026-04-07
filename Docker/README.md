@@ -1,14 +1,14 @@
-# Unified Docker for MP7 (Spark MapReduce) and MP8 (SparkSQL)
+# Unified Docker for Spark MapReduce and SparkSQL
 
-This Docker image combines the capabilities of both MP7 and MP8 into a single container.
+This Docker image combines the capabilities of both Spark MapReduce and SparkSQL into a single container.
 
 ## What's Included
 
 - **Ubuntu 22.04 LTS** base image
-- **Hadoop 3.3.6** (from MP7)
-- **Spark 3.5.4** (updated from MP8 - newer than MP7's 3.5.1)
+- **Hadoop 3.3.6**
+- **Spark 3.5.4**
 - **OpenJDK 21**
-- **Maven** (for Java builds from MP8)
+- **Maven** (for Java builds of SparkSQL)
 - **Python 3** with pip, numpy, and Cython
 
 ## Environment Variables
@@ -19,30 +19,25 @@ This Docker image combines the capabilities of both MP7 and MP8 into a single co
 - `JAVA_HOME` - Java installation (auto-detected for x86_64 or ARM64)
 
 ## Build Instructions
-
+It might take some time to fetch and build all layers
 ```bash
-cd mp-new/Docker
-docker build -t mp-new .
+cd MP7_Spark_Template/Docker
+docker build -t mp7 .
 ```
 
 ## Usage
 
-### Run interactively
+### run with the code directory mounted
 ```bash
-docker run -it --rm mp-new /bin/bash
-```
-
-### Mount your code
-```bash
-docker run -it --rm --mount type=bind,source=$PATH_TO_CODE,target=/cs498/ mp-new /bin/bash
+docker run -v <PATH_TO_LOCAL_REPO>:/MP7_Spark_Template --name mp7-cntr -it mp7
 ```
 
 ## Directory Structure
 
 This unified container supports:
-- Python Spark MapReduce (MP7 style)
-- Python SparkSQL (MP8 style)
-- Java SparkSQL (MP8 style with Maven)
+- Python Spark MapReduce
+- Python SparkSQL
+- Java SparkSQL
 
 ## Log
 
