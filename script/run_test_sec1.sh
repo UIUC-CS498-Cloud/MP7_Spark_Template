@@ -10,6 +10,8 @@ echo "MP7 Section 1 Container Test Script"
 echo "=========================================="
 echo ""
 
+cd ../section1
+
 spark-submit TitleCountSpark.py stopwords.txt delimiters.txt dataset/titles/ partA
 spark-submit TopTitleStatisticsSpark.py partA partB
 spark-submit OrphanPagesSpark.py dataset/links/ partC

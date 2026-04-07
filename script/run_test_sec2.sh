@@ -10,7 +10,7 @@ echo "MP7 Section 2 Container Test Script"
 echo "=========================================="
 echo ""
 
-cd section2/python
+cd ../section2/python
 spark-submit MP8_PartA.py
 spark-submit MP8_PartB.py
 spark-submit MP8_PartC.py
