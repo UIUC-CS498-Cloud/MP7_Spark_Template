@@ -23,12 +23,12 @@ import java.util.regex.Pattern;
 import java.util.Map;
 //import java.util.function.Function;
 
-public final class MP8_PartD {
+public final class PartD {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP8")
+      .appName("PartD")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);

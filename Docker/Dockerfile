@@ -7,7 +7,7 @@ ENV PYSPARK_PYTHON=python3
 # Update apt repository mirror for faster downloads
 RUN sed -i 's|http://security.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list
 
-# Install all dependencies from both mp7 and mp8
+# Install all dependencies needed for both sections
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
@@ -44,7 +44,7 @@ ENV YARN_CONF_DIR=$HADOOP_PREFIX/etc/hadoop
 ENV PATH="/usr/local/hadoop/bin:${PATH}"
 
 ################################################################################
-####################   Spark stuff (from mp8 - newer version)   ################
+####################   Spark stuff (newer version)   ################
 ################################################################################
 
 RUN cd /usr/local/ && \
@@ -55,7 +55,7 @@ RUN cd /usr/local/ && \
     rm -rf /usr/local/spark/external && \
     chmod a+rwx -R /usr/local/spark/
 
-# Install Python dependencies from mp8
+# Install Python dependencies
 RUN pip3 install --upgrade pip
 RUN pip3 install Cython
 RUN pip3 install numpy

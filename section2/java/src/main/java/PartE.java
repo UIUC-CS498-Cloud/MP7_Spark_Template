@@ -21,17 +21,17 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 //import java.util.function.Function;
 
-public final class MP8_PartA {
+public final class PartE {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP8")
+      .appName("PartE")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
     /*
-     * 1. Setup : write a function to load it in an RDD & DataFrame
+     * 1. Setup: write a function to load it in an RDD & DataFrame
      */
     
     // RDD API
@@ -39,6 +39,22 @@ public final class MP8_PartA {
 
 
     // Spark SQL - DataSet API
+
+
+
+    /*
+     * 5. Joining : The following program construct a new dataframe out of 
+     * 'df' with a much smaller size, which will allow us to perform a JOIN operation.
+     * Do a self-join on 'df2'in lines with the same 'count1' values and see how many 
+     * lines this JOIN could produce. Answer this question via DataFrame API and Spark SQL API
+     */
+
+    // Uncomment and use the below lines in your implementation as specified above
+
+    // Dataset<Row> df2 = df.select("word", "year").distinct().orderBy("year", "word").limit(100);
+    // df2.createOrReplaceTempView("gbooks2");
+    
+    // Spark SQL API
 
 
     // Finish up
@@ -49,10 +65,6 @@ public final class MP8_PartA {
 
 /* Sample Output
 
-+--------+
-|count(1)|
-+--------+
-|   50013|
-+--------+ 
+310
 
 */

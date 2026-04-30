@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 //import java.util.function.Function;
 
-public final class MP8_PartC {
+public final class PartB {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP8")
+      .appName("PartB")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
@@ -40,11 +40,14 @@ public final class MP8_PartC {
 
     // Spark SQL - DataSet API
 
-    /*
-     * 3. Filtering : Count the number of appearances of word 'ATTRIBUTE'
-     */
-    // Dataset/Spark SQL API
 
+
+    /*
+     * 2. Counting : How many lines does the file contains? Answer 
+     * this question via both RDD api & #Spark SQL
+     */
+
+     // Dataset/Spark SQL API
 
     spark.stop();
     sc.stop();
@@ -56,7 +59,7 @@ public final class MP8_PartC {
 +--------+
 |count(1)|
 +--------+
-|      11|
+|   50013|
 +--------+
 
 */

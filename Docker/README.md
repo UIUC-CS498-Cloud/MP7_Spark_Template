@@ -41,4 +41,4 @@ This unified container supports:
 
 ## Log
 
-Created February 2025 - Merged from MP7 and MP8 Docker configurations
+Created March 2026 - Merged from earlier MP Spark Docker configurations (Jiyu Hu: jiyuhu2@illinois.edu)

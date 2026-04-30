@@ -28,12 +28,12 @@ MP7_Spark_Template/
 	│   ├── run.sh
 	│   └── src/main/java/
 	└── python/
-		├── MP8_PartA.py
-		├── MP8_PartB.py
-		├── MP8_PartC.py
-		├── MP8_PartD.py
-		├── MP8_PartE.py
-		└── MP8_PartF.py
+		├── PartA.py
+		├── PartB.py
+		├── PartC.py
+		├── PartD.py
+		├── PartE.py
+		└── PartF.py
 ```
 
 ## Quick Start
@@ -57,6 +57,12 @@ spark-submit --version
 4. Test Hadoop:
 ```bash
 hadoop version
+```
+
+## Check Submission Zip
+Use `script/check_submission_zip.py` as a quick check for submission zip file format before submitting to grader. For more info, run
+```bash
+python3 script/check_submission_zip.py -h
 ```
 
 ## Features

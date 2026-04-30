@@ -16,11 +16,11 @@ import org.apache.spark.sql.expressions.Window;
 import org.apache.spark.sql.expressions.WindowSpec;
 import static org.apache.spark.sql.functions.*;
 
-public class MP8_PartF {
+public class PartF {
     public static void main(String[] args) throws IOException {
         SparkSession spark = SparkSession
         .builder()
-        .appName("MP8")
+        .appName("PartF")
         .getOrCreate();
         JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
         SQLContext sqlContext = new SQLContext(sc);

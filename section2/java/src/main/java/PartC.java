@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 //import java.util.function.Function;
 
-public final class MP8_PartE {
+public final class PartC {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP8")
+      .appName("PartC")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
@@ -40,24 +40,12 @@ public final class MP8_PartE {
 
     // Spark SQL - DataSet API
 
-
-
     /*
-     * 5. Joining : The following program construct a new dataframe out of 
-     * 'df' with a much smaller size, which will allow us to perform a JOIN operation.
-     * Do a self-join on 'df2'in lines with the same 'count1' values and see how many 
-     * lines this JOIN could produce. Answer this question via DataFrame API and Spark SQL API
+     * 3. Filtering : Count the number of appearances of word 'ATTRIBUTE'
      */
-
-    // Uncomment and use the below lines in your implementation as specified above
-
-    // Dataset<Row> df2 = df.select("word", "year").distinct().orderBy("year", "word").limit(100);
-    // df2.createOrReplaceTempView("gbooks2");
-    
-    // Spark SQL API
+    // Dataset/Spark SQL API
 
 
-    // Finish up
     spark.stop();
     sc.stop();
   }
@@ -65,6 +53,10 @@ public final class MP8_PartE {
 
 /* Sample Output
 
-310
++--------+
+|count(1)|
++--------+
+|      11|
++--------+
 
 */

@@ -21,17 +21,17 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 //import java.util.function.Function;
 
-public final class MP8_PartB {
+public final class PartA {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP8")
+      .appName("PartA")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
     /*
-     * 1. Setup: write a function to load it in an RDD & DataFrame
+     * 1. Setup : write a function to load it in an RDD & DataFrame
      */
     
     // RDD API
@@ -41,14 +41,7 @@ public final class MP8_PartB {
     // Spark SQL - DataSet API
 
 
-
-    /*
-     * 2. Counting : How many lines does the file contains? Answer 
-     * this question via both RDD api & #Spark SQL
-     */
-
-     // Dataset/Spark SQL API
-
+    // Finish up
     spark.stop();
     sc.stop();
   }
@@ -60,6 +53,6 @@ public final class MP8_PartB {
 |count(1)|
 +--------+
 |   50013|
-+--------+
++--------+ 
 
 */
