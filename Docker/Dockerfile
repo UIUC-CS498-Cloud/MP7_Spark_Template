@@ -30,7 +30,10 @@ RUN apt-get update && \
 ####################   Hadoop stuff (from mp7)   ###############################
 ################################################################################
 
-RUN curl -s "https://archive.apache.org/dist/hadoop/core/hadoop-3.3.6/hadoop-3.3.6.tar.gz" | tar -xz -C /usr/local/ \
+# downloads.apache.org is the fast CDN; archive.apache.org is the fallback in case the release is removed from CDN
+RUN (curl --fail --progress-bar "https://downloads.apache.org/hadoop/core/hadoop-3.3.6/hadoop-3.3.6.tar.gz" \
+    || curl --progress-bar "https://archive.apache.org/dist/hadoop/core/hadoop-3.3.6/hadoop-3.3.6.tar.gz") \
+    | tar -xz --checkpoint=.1000 -C /usr/local/ \
     && ln -s /usr/local/hadoop-3.3.6 /usr/local/hadoop \
     && chmod a+rwx -R /usr/local/hadoop/
 
@@ -47,11 +50,11 @@ ENV PATH="/usr/local/hadoop/bin:${PATH}"
 ####################   Spark stuff (newer version)   ################
 ################################################################################
 
-RUN cd /usr/local/ && \
-    wget "https://archive.apache.org/dist/spark/spark-3.5.4/spark-3.5.4-bin-hadoop3.tgz" && \
-    tar -xvzf spark-3.5.4-bin-hadoop3.tgz && \
-    ln -s ./spark-3.5.4-bin-hadoop3 spark &&  \
-    rm -rf /usr/local/spark-3.5.4-bin-hadoop3.tgz && \
+# downloads.apache.org is the fast CDN; archive.apache.org is the fallback in case the release is removed from CDN
+RUN (curl --fail --progress-bar "https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz" \
+    || curl --progress-bar "https://archive.apache.org/dist/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz") \
+    | tar -xz --checkpoint=.1000 -C /usr/local/ && \
+    ln -s /usr/local/spark-3.5.8-bin-hadoop3 /usr/local/spark && \
     rm -rf /usr/local/spark/external && \
     chmod a+rwx -R /usr/local/spark/
 
