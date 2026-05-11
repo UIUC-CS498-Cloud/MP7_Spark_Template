@@ -45,6 +45,7 @@ MP7_Spark_Template/
 cd Docker
 docker build -t mp7 .
 ```
+**Note**: In `Dockerfile`, for downloading Hadoop and Spark, there are two links each provided (one default and the `archive` as fallback). Depending on your environment and physical location, the fallback might downloads faster.
 
 2. Run the container:
 ```bash
@@ -77,6 +78,8 @@ Usage examples:
 ```
 
 The script performs basic validation for Java mode and exits with an error if required files are missing. The produced archive is `submission.zip` in the repository root.
+
+**Note**: tested on Mac, Ubuntu, and Windows WSL.
 
 ## Check Submission Zip
 Use `script/check_submission_zip.py` as a quick check for submission zip file format before submitting to grader. For more info, run

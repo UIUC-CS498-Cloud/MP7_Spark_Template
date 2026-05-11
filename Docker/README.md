@@ -6,7 +6,7 @@ This Docker image combines the capabilities of both Spark MapReduce and SparkSQL
 
 - **Ubuntu 22.04 LTS** base image
 - **Hadoop 3.3.6**
-- **Spark 3.5.4**
+- **Spark 3.5.8**
 - **OpenJDK 21**
 - **Maven** (for Java builds of SparkSQL)
 - **Python 3** with pip, numpy, and Cython
@@ -24,6 +24,7 @@ It might take some time to fetch and build all layers
 cd MP7_Spark_Template/Docker
 docker build -t mp7 .
 ```
+**Note**: In `Dockerfile`, for downloading Hadoop and Spark, there are two links each provided (one as default and the `archive` as fallback). Depending on your environment and physical location, the fallback might downloads faster.
 
 ## Usage
 
