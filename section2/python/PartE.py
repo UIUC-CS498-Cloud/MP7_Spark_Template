@@ -15,7 +15,7 @@ spark = SparkSession.builder.getOrCreate()
 # 0: word (string), 1: year (int), 2: frequency (int), 3: books (int)
 
 
-# Spark SQL - DataFrame API
+# Spark SQL - DataFrame API (you need to declare df here)
 
 
 ####
